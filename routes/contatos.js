@@ -3,9 +3,9 @@ module.exports = function(app) {
 	  , contatos = app.controllers.contatos;
 
 	var contatos = app.controllers.contatos;
-	app.get('/contatos', contatos.index);
+	app.get('/contatos', autenticar, contatos.index);
 	app.get('/contato/:id', autenticar, contatos.show);
-	app.post('/contato', contatos.create);
+	app.post('/contato', autenticar, contatos.create);
 	app.get('/contato/:id/editar', autenticar, contatos.edit);
 	app.put('/contato/:id', autenticar, contatos.update);
 	app.delete('/contato/:id', autenticar, contatos.destroy);
